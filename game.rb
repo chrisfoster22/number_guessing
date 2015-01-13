@@ -22,15 +22,15 @@ guess_array=[]
 greeting
 while count > 0 && guess != number
   guess = get_number_from_user
-  if guess > 100
+  if guess_array.include? guess
     puts "What kind of guess is that?"
   elsif guess < number
     puts "My number is greater than that."
   elsif guess > number
     puts "My number is less than that."
   end
-  count = count - 1
   if guess != number
+    count = count - 1
     remaining_guesses(count)
   end
   guess_array << guess
