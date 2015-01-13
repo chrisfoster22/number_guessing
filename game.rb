@@ -14,13 +14,13 @@ def remaining_guesses(count)
   end
 end
 
-number = 50
+number = rand(100)
 count = 5
-guess = 1000
+game_continues = true
 guess_array=[]
 
 greeting
-while count > 0 && guess != number
+while count > 0 && game_continues
   guess = get_number_from_user
   if guess_array.include? guess
     puts "What kind of guess is that?"
@@ -32,6 +32,7 @@ while count > 0 && guess != number
   if guess != number
     count = count - 1
     remaining_guesses(count)
+  else game_continues = false
   end
   guess_array << guess
 end
