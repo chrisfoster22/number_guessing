@@ -14,6 +14,13 @@ def remaining_guesses(count)
   end
 end
 
+def is_greater
+  guess_array.sort
+  if guess < guess_array[0]
+    puts "I don't have time for this."
+  end
+end
+
 number = (1..100).to_a.sample
 count = 5
 game_continues = true
@@ -30,6 +37,11 @@ while count > 0 && game_continues
     puts "My number is greater than that."
   elsif guess > number
     puts "My number is less than that."
+  end
+  guess_array << guess
+  guess_array.sort
+  if guess < guess_array[0] || guess > guess_array[-1]
+    puts "I don't have time for this..."
   end
   if guess != number
     count = count - 1
